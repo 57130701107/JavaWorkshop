@@ -6,6 +6,7 @@
 package sit.int675.week3;
 
 import java.util.Scanner;
+ 
 
 /**
  *
@@ -45,5 +46,8 @@ public class Assignment1 {
         System.out.println("Result:");
         System.out.print(cl.getResult(2));
 
+        
+         
+        
     }
 }
