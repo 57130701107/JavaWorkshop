@@ -10,7 +10,7 @@ package sit.int675.week7;
  * @author Student Lab
  */
 public class Circle extends Geometric {
-
+    protected String name = "Circle";
     protected double radius;
 
     public double getRadius() {
@@ -44,4 +44,5 @@ public class Circle extends Geometric {
         return "Circle{" + "radius=" + radius + '}';
     }
 
+    
 }

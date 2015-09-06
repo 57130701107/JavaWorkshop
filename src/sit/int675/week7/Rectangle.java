@@ -11,6 +11,7 @@ package sit.int675.week7;
  */
 public class Rectangle extends Geometric {
 
+    protected String name = "Rectangle";
     protected double width;
     protected double height;
 

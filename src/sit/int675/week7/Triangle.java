@@ -10,7 +10,7 @@ package sit.int675.week7;
  * @author Student Lab
  */
 public class Triangle extends Geometric {
-
+    protected String name = "Triangle";
     protected double height;
     protected double base;
 
