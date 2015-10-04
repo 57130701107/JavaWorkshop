@@ -6,6 +6,7 @@
 package int675practice;
 
 import sit.int675.demo.BankAccount;
+import sit.int675.week4.BankAccountException;
 
 /**
  *
@@ -13,7 +14,7 @@ import sit.int675.demo.BankAccount;
  */
 public class TestBankAccount {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BankAccountException {
         BankAccount ba = new BankAccount();
         ba.deposit(500);
         ba.setAccountId(90001);
@@ -22,7 +23,7 @@ public class TestBankAccount {
         BankAccount bb = new BankAccount();
         bb.setAccountId(99999);
         bb.setName("BBBBB");
-        bb.withdraw(1000);
+        bb.withdraw(-1000);
 
         System.out.println("Account ID:" + ba.getAccountId());
         System.out.println("Account Name:" + ba.getName());

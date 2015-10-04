@@ -5,7 +5,10 @@
  */
 package sit.int675.week5;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import sit.int675.demo.BankAccount;
+import sit.int675.week4.BankAccountException;
 
 /**
  *
@@ -38,11 +41,19 @@ public class TestMethod {
     }
     
     public static void foo(BankAccount ba) {
-        ba.deposit(9000);
+        try {
+            ba.deposit(9000);
+        } catch (BankAccountException ex) {
+            Logger.getLogger(TestMethod.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void bar(BankAccount ba) {
         ba = new BankAccount();
-        ba.deposit(10000);
+        try {
+            ba.deposit(10000);
+        } catch (BankAccountException ex) {
+            Logger.getLogger(TestMethod.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
