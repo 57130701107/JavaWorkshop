@@ -15,8 +15,8 @@ import java.util.Scanner;
 public class TestCustomer {
 
     public static void main(String[] args) {
-        //findById();
-        findByName();
+        findById();
+        //findByName();
     }
 
     public static void findById() {

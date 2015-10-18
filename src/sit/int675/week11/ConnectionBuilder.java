@@ -5,10 +5,17 @@
  */
 package sit.int675.week11;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+import org.apache.derby.jdbc.ClientXADataSource;
 
 /**
  *
@@ -22,7 +29,7 @@ public class ConnectionBuilder {
     public final static String USER_NAME = "app";
     public final static String PASSWORD = "app";
 
-    public static Connection getConnection() {
+    public static Connection getConnectionOriginal() {
         Connection conn = null;
         try {
             if (!load) {
@@ -40,4 +47,40 @@ public class ConnectionBuilder {
 
         return conn;
     }
+
+    public static Connection getConnectionServer() {
+        Connection conn = null;
+
+        return conn;
+    }
+
+    private static org.apache.derby.jdbc.ClientDataSource ds = null;
+
+    public static Connection getConnection() {
+        Connection conn = null;
+        try {
+            if (ds == null) {
+                Properties props = new Properties();
+                FileInputStream fis = null;
+
+                fis = new FileInputStream("db.properties");
+                props.load(fis);
+
+                ds = new org.apache.derby.jdbc.ClientDataSource();
+
+                ds.setServerName(props.getProperty("DERBY_SERVER_NAME"));
+                ds.setPortNumber(Integer.parseInt(props.getProperty("DERBY_SERVER_PORT")));
+                ds.setDatabaseName(props.getProperty("DERBY_DB_NAME"));
+                ds.setUser(props.getProperty("DERBY_DB_USERNAME"));
+                ds.setPassword(props.getProperty("DERBY_DB_PASSWORD"));
+
+            }
+            conn = ds.getConnection();
+        } catch (FileNotFoundException ex) {
+        } catch (SQLException ex) {
+        } catch (IOException ex) {
+        }
+        return conn;
+    }
+
 }
