@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package int675practice.Week12;
+package sit.int675.week12;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
