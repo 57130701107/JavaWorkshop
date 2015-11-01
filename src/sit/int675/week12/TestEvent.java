@@ -53,7 +53,8 @@ public class TestEvent extends JFrame{
         setSize(new Dimension(600,400));
         setVisible(true);
         
-        MyListener x = new MyListener();
+        //MyListener x = new MyListener();
+        MyListener x = new MyListener(this,jsred,jsgreen,jsblue,jlb);
         this.addMouseListener(x);
         this.addMouseMotionListener(x);
         
@@ -61,60 +62,7 @@ public class TestEvent extends JFrame{
         jsgreen.addAdjustmentListener(x);
         jsblue.addAdjustmentListener(x);
     }
-    private class MyListener implements MouseListener, MouseMotionListener,AdjustmentListener{
-
-        /*MouseMotionListener event*/
-        @Override
-        public void mouseDragged(MouseEvent e) {
-        }
-
-        @Override
-        public void mouseMoved(MouseEvent e) {
-            jf.setTitle("X = " + e.getX()+ " ,Y = "+ e.getY());
-            
-        }
-
-        /*MouseListener event*/
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            String ctrlMask;
-            if(e.getModifiers() == 16){
-                jf.setTitle("Left Click : at x = " + e.getX() + ",y = "+ e.getY());
-            }else if(e.getModifiers() == 4){
-                jf.setTitle("Right Click : at x = " + e.getX() + ",y = "+ e.getY());
-            }
-            System.out.println("MODIFIER: "+e.getModifiers());
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        @Override
-        public void adjustmentValueChanged(AdjustmentEvent e) {
-            jf.getContentPane().setBackground(new Color(jsred.getValue(),jsgreen.getValue(),jsblue.getValue()));
-            jlb.setText("RGB("+jsred.getValue()+","+jsgreen.getValue()+","+jsblue.getValue()+")");
-        }
-
-        
-    }
+    
     public static void main(String[] args) {
         new TestEvent();
     }

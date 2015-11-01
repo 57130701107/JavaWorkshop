@@ -6,6 +6,8 @@
 package sit.int675.week12;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -25,8 +27,38 @@ public class TestJFrame {
         jf.add(new JButton("Edit"));
         jf.add(new JButton("Delete"));
         
+        ((JButton)jf.getContentPane().getComponent(1)).addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jf.setTitle("You Click:" + e.getActionCommand());
+            }
+        });
+        ((JButton)jf.getContentPane().getComponent(2)).addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jf.setTitle("You Click:" + e.getActionCommand());
+            }
+        });
+        ((JButton)jf.getContentPane().getComponent(3)).addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jf.setTitle("You Click:" + e.getActionCommand());
+            }
+        });
+        
+        
         jf.setLayout(new FlowLayout());
         jf.setSize(600, 200);
         jf.setVisible(true);
+        
+        jb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jf.setTitle("You Click:" + e.getActionCommand());
+            }
+        });
     }
 }
